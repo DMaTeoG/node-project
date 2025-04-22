@@ -40,6 +40,12 @@ pipeline {
       }
     }
 
+    stage('Publicar reporte de pruebas') {
+      steps {
+        junit 'test-results/results.xml'
+      }
+    }
+
     stage('Build app') {
       steps {
         bat 'npm run build'
@@ -61,3 +67,4 @@ pipeline {
     }
   }
 }
+
