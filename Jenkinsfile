@@ -2,20 +2,17 @@ pipeline {
   agent any
 
   environment {
-    CI = "false" 
-    
+    CI = "false"
+  }
+
+  tools {
+    nodejs 'Node 20' // Este es el nombre que debe coincidir con el configurado en Global Tool Configuration
   }
 
   stages {
     stage('Declarative: Checkout SCM') {
       steps {
         checkout scm
-      }
-    }
-
-    stage('Tool Install') {
-      steps {
-        tool name: 'Node 20', type: 'nodejs'
       }
     }
 
