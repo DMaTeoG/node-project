@@ -6,7 +6,7 @@ pipeline {
   }
 
   tools {
-    nodejs 'Node 20' // Este es el nombre que debe coincidir con el configurado en Global Tool Configuration
+    nodejs 'Node 20'
   }
 
   stages {
@@ -40,12 +40,6 @@ pipeline {
       }
     }
 
-    stage('Publicar reporte de pruebas') {
-      steps {
-        junit 'test-results/results.xml'
-      }
-    }
-
     stage('Build app') {
       steps {
         bat 'npm run build'
@@ -67,4 +61,3 @@ pipeline {
     }
   }
 }
-
